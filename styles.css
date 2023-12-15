@@ -1,0 +1,185 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#mapid {
+  height: 100vh;
+  width: 100vw;
+}
+
+#settings-panel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 250px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.panel-header h3 {
+  margin: 0;
+  color: #d35400;
+}
+
+.panel-header p {
+  font-size: 0.8em;
+  color: #333;
+}
+
+#draggable-marker {
+  width: 40px;
+  cursor: move;
+}
+
+#map-overlay {
+  display: none; /* Stellen Sie sicher, dass das Overlay standardmäßig nicht angezeigt wird */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5); /* Dunkler Hintergrund */
+  z-index: 999; /* Unter dem Modal, aber über der Karte */
+}
+
+#toaster {
+  position: fixed; /* Fixed statt absolute für zentrierte Positionierung */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Zentriert das Fenster genau */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  width: 300px;
+  display: none; /* Standardmäßig ausgeblendet */
+  z-index: 1000; /* Über dem Overlay */
+}
+
+
+#toaster input, #toaster textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#toaster button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  display: none; /* Versteckt das Modal standardmäßig */
+  position: fixed; /* Bleibt an Ort und Stelle */
+  z-index: 1000; /* Sitziert das Modal über allem anderen */
+  left: 0;
+  top: 0;
+  width: 100%; /* Volle Breite */
+  height: 100%; /* Volle Höhe */
+  background-color: rgba(0,0,0,0.8); /* Dunkelheit mit Transparenz */
+}
+
+.modal-content {
+  background-color: #333;
+  margin: 15% auto; /* 15% vom oberen Rand und zentriert horizontal */
+  padding: 20px;
+  border: 1px solid #888;
+  display: flex;
+  flex-direction: column; /* Ordnet die Elemente vertikal an */
+  align-items: center; /* Zentriert die Elemente horizontal */
+  width: 30%; /* Oder eine andere Breite, die für Ihr Design sinnvoll ist */
+  color: #fff; /* Helles Text */
+  border-radius: 8px; /* Runde Ecken */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten für Tiefe */
+}
+
+.modal-content input[type="text"],
+.modal-content textarea,
+.modal-content input[type="file"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #555; /* Subtiler Border */
+  background-color: #555; /* Dunklerer Hintergrund für Elemente */
+  color: #ddd; /* Heller Text für Elemente */
+  border-radius: 4px; /* Leicht abgerundete Ecken */
+}
+
+.modal-content button {
+  width: auto;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Blaue Farbe für den Hauptbutton */
+  color: white;
+  cursor: pointer;
+  margin-top: 20px; /* Mehr Abstand nach oben */
+  transition: background-color 0.3s ease;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 50%; opacity: 1}
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3; /* Dunklere Farbe beim Hover */
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #333;
+}
+/* Labels mit Emojis */
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+}
+
+#modal-name-label::before {
+  content: '📛'; /* Emoji für den Namen */
+  margin-right: 8px;
+}
+
+#modal-description-label::before {
+  content: '📝'; /* Emoji für die Beschreibung */
+  margin-right: 8px;
+}
+
+#modal-photo-upload-label::before {
+  content: '📷'; /* Emoji für das Foto hochladen */
+  margin-right: 8px;
+}

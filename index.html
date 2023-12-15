@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Interaktive Karte für Lost Places</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div id="mapid"></div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <label id="modal-name-label" for="modal-name">Name:</label>
+    <input type="text" id="modal-name" placeholder="">
+
+    <label id="modal-description-label" for="modal-description">Beschreibung:</label>
+    <textarea id="modal-description" placeholder="Beschreibung" rows="4"></textarea>
+
+    <!-- Upload-Feld für Fotos, das vorerst nicht funktional ist -->
+    <label id="modal-photo-upload-label" for="modal-photo-upload">Foto hochladen:</label>
+    <input type="file" id="modal-photo-upload" accept="image/*" disabled>
+
+    <!-- Der Button "Fertig" funktioniert als "Einreichen"-Button -->
+    <button onclick="submitMarkerDetails()">Einreichen</button>
+  </div>
+</div>
+
+<div id="map-overlay" class="hidden"></div>
+<div id="settings-panel">
+  <div class="panel-header">
+    <h3>Lost World</h3>
+  </div>
+  <hr>
+  <div class="panel-content">
+    <div class="setting-option">
+      <img src="img/marker.png" alt="Marker" id="draggable-marker" draggable="true">
+      <p>Hinzufügen</p>
+    </div>
+    <hr>
+    <div class="setting-option">
+      <!-- Deine zweite Gruppe von Einstellungen -->
+    </div>
+    <hr>
+    <div class="setting-option">
+      <!-- Weitere Einstellungen -->
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
